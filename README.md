@@ -1,1 +1,1 @@
-# i18next 
+# i18next
