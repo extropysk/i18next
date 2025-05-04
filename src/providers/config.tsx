@@ -1,32 +1,27 @@
-'use client'
-
 import { createContext, ReactNode, useContext } from 'react'
 
-import { I18nConfig } from '../types'
+import { i18n } from 'i18next'
 
 type I18n = {
-  locales: string[]
-  defaultLocale: string
-  defaultNS: string
+  i18n: i18n
   cookieName: string
+  locale: string
 }
 
 type Props = {
   children: ReactNode
-  config: I18nConfig
+  i18n: i18n
+  cookieName?: string
+  locale: string
 }
 
 const I18nContext = createContext<I18n | null>(null)
 
-export function I18nProvider({
-  children,
-  config: { locales, defaultLocale, defaultNS = 'general', cookieName = 'i18next' },
-}: Props) {
+export function I18nProvider({ children, i18n, locale, cookieName = 'i18next' }: Props) {
   const config: I18n = {
-    locales,
-    defaultLocale,
-    defaultNS,
+    i18n,
     cookieName,
+    locale,
   }
 
   return <I18nContext.Provider value={config}>{children}</I18nContext.Provider>

@@ -9,9 +9,12 @@ export default defineConfig({
   plugins: [dts()],
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: {
+        index: path.resolve(__dirname, 'src/index.ts'),
+        server: path.resolve(__dirname, 'src/server/index.ts'),
+      },
       name: formattedName,
-      formats: ['es', 'umd'],
+      formats: ['es'],
     },
     rollupOptions: {
       external: ['react', 'react/jsx-runtime', 'react-dom'],
