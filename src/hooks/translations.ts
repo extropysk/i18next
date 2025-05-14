@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
-
-import { useI18n } from '../providers'
+import { useI18n } from '../components'
 
 type Options = {
   keyPrefix?: string
